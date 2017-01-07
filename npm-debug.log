@@ -1,0 +1,88 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Christos\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@4.0.5
+3 info using node@v7.3.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\dev\\personal\\cg-static',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\Christos\AppData\Roaming\npm-cache\cg-static\0.4.1\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\Christos\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle cg-static@0.4.1~prepublish: cg-static@0.4.1
+11 silly lifecycle cg-static@0.4.1~prepublish: no script for prepublish, continuing
+12 info lifecycle cg-static@0.4.1~prepare: cg-static@0.4.1
+13 silly lifecycle cg-static@0.4.1~prepare: no script for prepare, continuing
+14 verbose tar pack [ 'C:\\Users\\Christos\\AppData\\Roaming\\npm-cache\\cg-static\\0.4.1\\package.tgz',
+14 verbose tar pack   'C:\\dev\\personal\\cg-static' ]
+15 verbose tarball C:\Users\Christos\AppData\Roaming\npm-cache\cg-static\0.4.1\package.tgz
+16 verbose folder C:\dev\personal\cg-static
+17 verbose addLocalTarball adding from inside cache C:\Users\Christos\AppData\Roaming\npm-cache\cg-static\0.4.1\package.tgz
+18 verbose correctMkdir C:\Users\Christos\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+19 silly cache afterAdd cg-static@0.4.1
+20 verbose afterAdd C:\Users\Christos\AppData\Roaming\npm-cache\cg-static\0.4.1\package\package.json not in flight; writing
+21 verbose correctMkdir C:\Users\Christos\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+22 verbose afterAdd C:\Users\Christos\AppData\Roaming\npm-cache\cg-static\0.4.1\package\package.json written
+23 silly publish { name: 'cg-static',
+23 silly publish   version: '0.4.1',
+23 silly publish   description: 'A collection of gulp tasks to automate build of static sites',
+23 silly publish   main: 'src/cg-static.js',
+23 silly publish   author:
+23 silly publish    { name: 'Christos Georgiou',
+23 silly publish      email: 'georgiou.christos@outlook.com',
+23 silly publish      url: 'http://christosgeorgiou.gr' },
+23 silly publish   private: true,
+23 silly publish   dependencies: {},
+23 silly publish   devDependencies:
+23 silly publish    { 'browser-sync': '2.18.6',
+23 silly publish      extend: '^3.0.0',
+23 silly publish      gulp: '3.9.1',
+23 silly publish      'gulp-clean': '0.3.2',
+23 silly publish      'gulp-clean-css': '2.3.2',
+23 silly publish      'gulp-compile-handlebars': '^0.6.1',
+23 silly publish      'gulp-concat': '2.6.1',
+23 silly publish      'gulp-data': '^1.2.0',
+23 silly publish      'gulp-rename': '1.2.2',
+23 silly publish      'gulp-sass': '3.0.0',
+23 silly publish      'gulp-util': '3.0.8',
+23 silly publish      path: '0.12.7' },
+23 silly publish   readme: '# CG Static\r\nA collection of gulp tasks to automate build of static sites\r\n\r\n# License\r\nThe MIT License (MIT)\r\n\r\nCopyright (c) 2017 Christos Georgiou\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the "Software"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.\r\n',
+23 silly publish   readmeFilename: 'README.md',
+23 silly publish   gitHead: '6d81b9f6f450062ce188bc1e5316e57ba4be7eb4',
+23 silly publish   _id: 'cg-static@0.4.1',
+23 silly publish   scripts: {},
+23 silly publish   _shasum: 'af844fb0b89338418608659e22695072d9689f03',
+23 silly publish   _from: '.' }
+24 info lifecycle cg-static@0.4.1~prepublishOnly: cg-static@0.4.1
+25 silly lifecycle cg-static@0.4.1~prepublishOnly: no script for prepublishOnly, continuing
+26 verbose getPublishConfig undefined
+27 verbose stack Error: This package has been marked as private
+27 verbose stack Remove the 'private' field from the package.json to publish it.
+27 verbose stack     at publish_ (C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\lib\publish.js:102:15)
+27 verbose stack     at Array.<anonymous> (C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+27 verbose stack     at LOOP (C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+27 verbose stack     at C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\chain.js:18:7
+27 verbose stack     at done (C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:132:5)
+27 verbose stack     at LOOP (C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\chain.js:7:26)
+27 verbose stack     at C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\chain.js:18:7
+27 verbose stack     at C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:318:20
+27 verbose stack     at C:\Users\Christos\AppData\Roaming\npm\node_modules\npm\node_modules\graceful-fs\polyfills.js:284:29
+27 verbose stack     at FSReqWrap.oncomplete (fs.js:111:15)
+28 verbose cwd C:\dev\personal\cg-static
+29 error Windows_NT 10.0.14393
+30 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Christos\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+31 error node v7.3.0
+32 error npm  v4.0.5
+33 error This package has been marked as private
+33 error Remove the 'private' field from the package.json to publish it.
+34 error If you need help, you may report this error at:
+34 error     <https://github.com/npm/npm/issues>
+35 verbose exit [ 1, true ]
