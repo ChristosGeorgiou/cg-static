@@ -1,12 +1,17 @@
 {
   "name": "cg-static",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A collection of gulp tasks to automate build of static sites",
   "main": "src/cg-static.js",
   "author": {
     "name": "Christos Georgiou",
     "email": "georgiou.christos@outlook.com",
     "url": "http://christosgeorgiou.gr"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChristosGeorgiou/cg-static"
   },
   "dependencies": {
     "browser-sync": "2.18.6",

@@ -9,7 +9,6 @@ var path = require('path');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var extend = require('extend');
-var modRewrite = require('connect-modrewrite');
 var clean = require('gulp-clean');
 
 module.exports = function (gulp, config) {

@@ -1,6 +1,42 @@
 # CG Static
 A collection of gulp tasks to automate build of static sites
 
+# Usage
+
+```` js
+var gulp = require('gulp');
+require('cg-static')(gulp, {
+    language: "en", //default language - en is default-value
+    languages: [], // array of all languages
+    dirs: {
+        dist: "./dist", //default-value
+        src: "./src", //default-value
+        scss: "./scss", //default-value
+    },
+    handlebars: {
+        helpers: {
+            json: require("./src/helpers/json"),
+            // require here handlebars plugins
+        }
+    }
+}
+````
+
+# Functions
+
+**serve:** serve using browser-sync
+
+**build:** run handlebars scss and static
+
+**clean:** clean dist folder - all file will be deleted
+
+**handlebars:** build handlebars templates
+
+**scss:** build sass files
+
+**static:** copy all contents of the static folder in dist root
+
+
 # License
 The MIT License (MIT)
 
