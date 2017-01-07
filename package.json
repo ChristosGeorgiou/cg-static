@@ -2,6 +2,7 @@
   "name": "cg-static",
   "version": "0.4.1",
   "description": "A collection of gulp tasks to automate build of static sites",
+  "main": "src/cg-static.js",
   "author": {
     "name": "Christos Georgiou",
     "email": "georgiou.christos@outlook.com",
