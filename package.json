@@ -8,8 +8,7 @@
     "email": "georgiou.christos@outlook.com",
     "url": "http://christosgeorgiou.gr"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "2.18.6",
     "extend": "^3.0.0",
     "gulp": "3.9.1",
