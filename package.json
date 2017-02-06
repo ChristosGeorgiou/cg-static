@@ -18,7 +18,7 @@
     "extend": "^3.0.0",
     "gulp": "3.9.1",
     "gulp-clean": "0.3.2",
-    "gulp-clean-css": "2.3.2",
+    "gulp-clean-css": "2.4.0",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "2.6.1",
     "gulp-data": "^1.2.0",
