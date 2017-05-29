@@ -1,6 +1,6 @@
 {
   "name": "cg-static",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "A collection of gulp tasks to automate build of static sites",
   "main": "src/cg-static.js",
   "author": {
