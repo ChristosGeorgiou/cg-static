@@ -14,16 +14,16 @@
     "url": "https://github.com/ChristosGeorgiou/cg-static"
   },
   "dependencies": {
-    "browser-sync": "2.18.6",
-    "extend": "^3.0.0",
+    "browser-sync": "2.18.12",
+    "extend": "^3.0.1",
     "gulp": "3.9.1",
     "gulp-clean": "0.3.2",
-    "gulp-clean-css": "2.3.2",
+    "gulp-clean-css": "3.4.0",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "2.6.1",
-    "gulp-data": "^1.2.0",
+    "gulp-data": "^1.2.1",
     "gulp-rename": "1.2.2",
-    "gulp-sass": "3.0.0",
+    "gulp-sass": "3.1.0",
     "gulp-util": "3.0.8",
     "path": "0.12.7"
   }
