@@ -10,6 +10,7 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var extend = require('extend');
 var clean = require('gulp-clean');
+var merge = require('gulp-merge');
 
 module.exports = function (gulp, config) {
 
@@ -26,7 +27,7 @@ module.exports = function (gulp, config) {
         },
     }, config);
 
-    gutil.log(config)
+    gutil.log("Config", gutil.colors.magenta(JSON.stringify(config)))
 
     gulp.task('default', ['serve']);
 
@@ -44,8 +45,9 @@ module.exports = function (gulp, config) {
 
         gulp.watch([path.join(config.dirs.scss, '**/*.scss')], ['scss']);
         gulp.watch([
-            path.join(config.dirs.src, 'data/**/*.json'),
-            path.join(config.dirs.src, '**/*.hbs')], ['handlebars'])
+                path.join(config.dirs.src, 'data/**/*.json'),
+                path.join(config.dirs.src, '**/*.hbs')
+            ], ['handlebars'])
             .on('change', browserSync.reload);
 
     });
@@ -53,7 +55,9 @@ module.exports = function (gulp, config) {
     gulp.task('build', ['handlebars', 'scss', 'static']);
 
     gulp.task('clean', function () {
-        return gulp.src(config.dirs.dist, { read: false })
+        return gulp.src(config.dirs.dist, {
+                read: false
+            })
             .pipe(clean());
     });
 
@@ -63,8 +67,7 @@ module.exports = function (gulp, config) {
             config.languages.forEach(function (lang, index) {
                 _buildPages(lang, lang);
             });
-        }
-        else {
+        } else {
             _buildPages(config.language, config.language);
         }
 
@@ -86,9 +89,19 @@ module.exports = function (gulp, config) {
     });
 
     gulp.task('static', function () {
-        return gulp
-            .src(path.join(config.dirs.src, 'static/**/*.*'))
-            .pipe(gulp.dest(config.dirs.dist));
+
+        if (!config.statics) {
+            return;
+        }
+
+        // merge.streams = [];
+        config.statics.forEach(function (pack) {
+            merge()
+                .add(gulp
+                    .src(pack.files)
+                    .pipe(gulp.dest(pack.destination)));
+        });
+
     });
 
     function _buildPages(lang, dest) {
@@ -110,9 +123,9 @@ module.exports = function (gulp, config) {
                 _global: config,
                 _base: _base,
             }, {
-                    batch: path.join(config.dirs.src, 'partials'),
-                    helpers: config.handlebars.helpers,
-                }).on('error', gutil.log))
+                batch: path.join(config.dirs.src, 'partials'),
+                helpers: config.handlebars.helpers,
+            }).on('error', gutil.log))
             .pipe(rename({
                 extname: '.html'
             }))
@@ -128,7 +141,9 @@ module.exports = function (gulp, config) {
         if (!fs.existsSync(path.join(config.dirs.src, 'data', _file))) return {};
 
         var _f = fs.readFileSync(path.join(config.dirs.src, 'data', file + ".json"));
-        var _fileData = JSON.parse(_f, { encoding: "UTF-8" });
+        var _fileData = JSON.parse(_f, {
+            encoding: "UTF-8"
+        });
 
         if (lang && fs.existsSync(path.join(config.dirs.src, 'data', file + "." + lang + ".json"))) {
             var _f = fs.readFileSync(path.join(config.dirs.src, 'data', file + "." + lang + ".json"));
