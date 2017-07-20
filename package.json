@@ -14,7 +14,7 @@
     "url": "https://github.com/ChristosGeorgiou/cg-static"
   },
   "dependencies": {
-    "browser-sync": "2.18.12",
+    "browser-sync": "2.18.13",
     "extend": "^3.0.1",
     "gulp": "3.9.1",
     "gulp-clean": "0.3.2",
