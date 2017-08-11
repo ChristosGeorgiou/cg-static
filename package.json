@@ -1,6 +1,6 @@
 {
   "name": "cg-static",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A collection of gulp tasks to automate build of static sites",
   "main": "src/cg-static.js",
   "author": {
@@ -14,11 +14,11 @@
     "url": "https://github.com/ChristosGeorgiou/cg-static"
   },
   "dependencies": {
-    "browser-sync": "2.18.12",
+    "browser-sync": "2.18.13",
     "extend": "^3.0.1",
     "gulp": "3.9.1",
     "gulp-clean": "0.3.2",
-    "gulp-clean-css": "3.4.0",
+    "gulp-clean-css": "3.7.0",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "2.6.1",
     "gulp-data": "^1.2.1",
