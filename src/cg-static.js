@@ -81,9 +81,10 @@ module.exports = function (gulp, config) {
             .src(path.join(config.dirs.scss, '**/*.scss'))
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(path.join(config.dirs.dist, 'css')))
-            .pipe(concat('style.css'))
             .pipe(minify())
-            .pipe(rename('style.min.css'))
+            .pipe(rename({
+                suffix: ".min"
+            }))
             .pipe(gulp.dest(path.join(config.dirs.dist, 'css')))
             .pipe(browserSync.stream());
     });
