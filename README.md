@@ -6,8 +6,7 @@ A collection of gulp tasks to automate build of static sites
 ```` js
 var gulp = require('gulp');
 require('cg-static')(gulp, {
-    language: "en", //default language - en is default-value
-    languages: [], // array of all languages
+    languages: ["en"], // optional. array of all languages. the first is default
     dirs: {
         dist: "./dist", //default-value
         src: "./src", //default-value
