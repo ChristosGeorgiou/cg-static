@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 
 require('./src/cg-static')(gulp, {
-    language: "en",
     languages: [
         "en", "el"
     ],
