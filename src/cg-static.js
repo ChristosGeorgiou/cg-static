@@ -15,8 +15,7 @@ var merge = require('gulp-merge');
 module.exports = function (gulp, config) {
 
     config = extend(true, {
-        language: "en",
-        languages: [],
+        languages: ["en"],
         dirs: {
             dist: "./dist",
             src: "./src",
@@ -45,11 +44,9 @@ module.exports = function (gulp, config) {
 
         gulp.watch([path.join(config.dirs.scss, '**/*.scss')], ['scss']);
         gulp.watch([
-                path.join(config.dirs.src, 'data/**/*.json'),
-                path.join(config.dirs.src, '**/*.hbs')
-            ], ['handlebars'])
-            .on('change', browserSync.reload);
-
+            path.join(config.dirs.src, 'data/**/*.json'),
+            path.join(config.dirs.src, '**/*.hbs')
+        ], ['handlebars'])
     });
 
     gulp.task('build', ['handlebars', 'scss', 'static']);
@@ -63,17 +60,18 @@ module.exports = function (gulp, config) {
 
     gulp.task('handlebars', function (cb) {
 
-        if (config.languages) {
-            config.languages.forEach(function (lang, index) {
-                _buildPages(lang, lang);
-            });
-        } else {
-            _buildPages(config.language, config.language);
+        if (!config.languages.length) {
+            config.languages = ["en"]
         }
 
-        _buildPages(config.language, "");
+        var _langs = extend([], config.languages)
 
-        cb();
+        _langs.reduce(function (chain, lang) {
+            return chain.then(_buildPages.bind(null, lang, lang));
+        }, _buildPages(_langs[0], "default")).then(function () {
+            browserSync.reload()
+            cb()
+        });
     });
 
     gulp.task('scss', function () {
@@ -107,32 +105,41 @@ module.exports = function (gulp, config) {
 
     function _buildPages(lang, dest) {
 
-        var _base = _loadDataFile("_base", lang);
+        return new Promise(function (resolve, reject) {
 
-        return gulp
-            .src([path.join(config.dirs.src, 'pages/**/*.hbs')])
-            .pipe(data(function (file) {
-                var _page = path.relative(file.base, file.path).replace('.hbs', '');
-                gutil.log('Building:', gutil.colors.magenta(lang + "-" + _page));
-                var _content = _loadDataFile(_page, lang);
-                _content._page = _page;
-                _content.language = lang;
-                // console.log(_content);
-                return _content;
-            }))
-            .pipe(handlebars({
-                _global: config,
-                _base: _base,
-            }, {
-                batch: path.join(config.dirs.src, 'partials'),
-                helpers: config.handlebars.helpers,
-            }).on('error', gutil.log))
-            .pipe(rename({
-                extname: '.html'
-            }))
-            .pipe(gulp.dest(path.join(config.dirs.dist, dest)));
+            gutil.log('Building language', gutil.colors.magenta(dest));
 
+            var _base = _loadDataFile("_base", lang);
+
+            gulp
+                .src([path.join(config.dirs.src, 'pages/**/*.hbs')])
+                .pipe(data(function (file) {
+                    var _page = path.relative(file.base, file.path).replace('.hbs', '');
+                    gutil.log('  >', gutil.colors.magenta(_page));
+                    var _content = _loadDataFile(_page, lang);
+                    _content._page = _page;
+                    _content.language = lang;
+                    // console.log(_content);
+                    return _content;
+                }))
+                .pipe(handlebars({
+                    _global: config,
+                    _base: _base,
+                }, {
+                    batch: path.join(config.dirs.src, 'partials'),
+                    helpers: config.handlebars.helpers,
+                }).on('error', gutil.log))
+                .pipe(rename({
+                    extname: '.html'
+                }))
+                .pipe(gulp.dest(path.join(config.dirs.dist, (dest === "default") ? "" : dest)))
+                .on('end', function () {
+                    resolve();
+                })
+        });
     }
+
+
 
     function _loadDataFile(file, lang) {
 
