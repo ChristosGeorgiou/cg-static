@@ -1,12 +1,12 @@
 {
-  "name": "cg-static",
-  "version": "0.7.0",
+  "name": "gulp-cg-toolkit",
+  "version": "1.0.0",
   "description": "A collection of gulp tasks to automate build of static sites",
-  "main": "src/cg-static.js",
+  "main": "index.js",
   "author": {
     "name": "Christos Georgiou",
     "email": "georgiou.christos@outlook.com",
-    "url": "http://christosgeorgiou.gr"
+    "url": "http://cgeosoft.com"
   },
   "license": "MIT",
   "repository": {
@@ -18,13 +18,20 @@
     "extend": "^3.0.1",
     "gulp": "3.9.1",
     "gulp-clean": "0.3.2",
-    "gulp-clean-css": "3.7.0",
+    "gulp-clean-css": "3.9.0",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "2.6.1",
     "gulp-data": "^1.2.1",
     "gulp-merge": "^0.1.1",
     "gulp-rename": "1.2.2",
     "gulp-sass": "3.1.0",
+    "gulp-sequence": "^0.4.6",
     "gulp-util": "3.0.8"
+  },
+  "standard": {
+    "workingDirectories": [
+      "tasks",
+      "utils"
+    ]
   }
 }
