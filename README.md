@@ -1,4 +1,4 @@
-# Gulp CG Static
+# Gulp CG Toolkit
 
 A collection of gulp tasks to automate build of static sites
 

@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChristosGeorgiou/cg-static"
+    "url": "https://github.com/ChristosGeorgiou/gulp-cg-toolkit"
   },
   "dependencies": {
     "browser-sync": "2.18.13",
