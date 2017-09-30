@@ -4,7 +4,7 @@ const bs = require('browser-sync').get('SIM')
 const path = require('path')
 
 module.exports = function () {
-  gulp.watch([path.join(config.dirs.scss, '**/*.scss')], ['scss'])
+  gulp.watch([path.join(config.dirs.scss, '**/*.scss')], ['build:scss'])
   gulp.watch([
     path.join(config.dirs.src, 'data/**/*.json'),
     path.join(config.dirs.src, '**/*.hbs')
