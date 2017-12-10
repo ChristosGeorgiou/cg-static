@@ -1,4 +1,4 @@
-# Gulp CG Toolkit
+# Gulp Toolkit
 
 A collection of gulp tasks to automate build of static sites
 
@@ -11,29 +11,43 @@ File stracture and some tasks are inspired or copied from [gulp-wp-toolkit](http
 ```` js
 const gulp = require('gulp')
 const toolkit = require('gulp-cg-toolkit')
-
-toolkit.extendConfig({
-    languages: ["en"], // optional. array of all languages. the first is default
-    dirs: {
-        dist: "./dist", //default-value
-        src: "./src", //default-value
-        scss: "./scss", //default-value
-    },
-    statics: [{ // example of simple static folder - glob is used
-        destination: "./test/dist",
-        files: [
-            "./test/src/static/**/*.*"
-        ],
-    }],
-    handlebars: {
-        helpers: {
-            json: require("./src/helpers/json"),
-            // require here handlebars plugins
-        }
-    }
-});
-
+toolkit.extendTasks({ /* Config Extend */ })
 toolkit.extendTasks(gulp, { /* Task Overrides */ })
+````
+
+## Multi Project Support
+
+From version >2, a major feature is presented. You have to put a new folder `sites` in root directory and setup a folder per project.
+
+````script
+./
+  /sites
+    /mysite
+      /src
+        /dist
+        /README.md
+        /website.config.json
+  /package.json
+````
+
+The `website.config.json` file is not required. It extends the default own.
+
+````json
+// Example website.config.json
+{
+    "languages": ["en"], // optional. array of all languages. the first is default
+    "dirs": {
+        "dist": "./dist", //default-value
+        "src": "./src", //default-value
+        "scss": "./scss", //default-value
+        "statics": [{ // example of simple static folder - glob is used
+            "destination": "./test/dist",
+            "files": [
+                "./test/src/static/**/*.*"
+            ],
+        }]
+    }
+}
 ````
 
 ## Functions
@@ -45,11 +59,15 @@ toolkit.extendTasks(gulp, { /* Task Overrides */ })
   - `gulp build:scss` build sass files
   - `gulp build:static` copy all contents of the static folder in dist root
 
+## Parameters
+
+`--project`: Build project. E.g. `gulp build --project mySite`
+
 ## License
 
 MIT License
 
-Copyright (c) 2017 Christos Georgiou
+Copyright (c) 2018 Christos Georgiou
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
