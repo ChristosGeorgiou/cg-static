@@ -2,17 +2,16 @@ const extend = require('extend')
 const fs = require('fs')
 const path = require('path')
 const gutil = require('gulp-util')
-const argv = require('yargs').argv;
+const argv = require('yargs').argv
 
-function getDirectories(path) {
+function getDirectories (path) {
   return fs.readdirSync(path)
     .filter(function (file) {
-      return fs.statSync(path + '/' + file).isDirectory();
-    });
+      return fs.statSync(path + '/' + file).isDirectory()
+    })
 }
 
 module.exports = (function () {
-
   let defaultConfig = {
     languages: ['en'],
     dirs: {
@@ -20,8 +19,8 @@ module.exports = (function () {
       src: './src',
       scss: './src/scss',
       statics: [{
-        files: "./src/static/**/*",
-        destination: "./dist"
+        files: './src/static/**/*',
+        destination: './dist'
       }]
     },
     handlebars: {
@@ -29,7 +28,7 @@ module.exports = (function () {
     }
   }
 
-  let projects = getDirectories("./sites")
+  let projects = getDirectories('./sites')
 
   // console.log("projects", projects)
   if (argv.project === undefined) {
@@ -44,7 +43,7 @@ module.exports = (function () {
   let projectConfig = fs.existsSync(customConfig) ? require(customConfig) : {}
 
   let config = extend(defaultConfig, projectConfig, {
-    project: argv.project,
+    project: argv.project
   })
 
   config.dirs.dist = `./sites/${argv.project}/${config.dirs.dist}`
@@ -55,11 +54,10 @@ module.exports = (function () {
     config.dirs.statics.forEach(element => {
       element.files = `./sites/${argv.project}/${element.files}`
       element.destination = `./sites/${argv.project}/${element.destination}`
-    });
+    })
   }
 
-  console.log("CONFIG", config)
+  console.log('CONFIG', config)
 
   return config
-
 })()

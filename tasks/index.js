@@ -7,11 +7,15 @@ module.exports = {
   'build:scss': [require('./build/scss')],
   'build:static': [require('./build/static')],
   'build': [
-        ['build:hbs', 'build:scss', 'build:static']
+    ['build:hbs', 'build:scss', 'build:static']
   ],
 
   'watch': [require('./watch')],
-  'serve': [['browser-sync', 'watch']],
-  'default': [['build', 'serve']]
+  'serve': [
+    ['browser-sync', 'watch']
+  ],
+  'default': [
+    ['build', 'serve']
+  ]
 
 }
