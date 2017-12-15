@@ -1,14 +1,18 @@
 # Gulp Toolkit
 
-A collection of gulp tasks to automate build of static sites
-
-## Credits
-
-File stracture and some tasks are inspired or copied from [gulp-wp-toolkit](https://github.com/craigsimps/gulp-wp-toolkit)
+A collection of gulp-tasks for static website build automation.
 
 ## Usage
 
+Install
+
+```` bash
+# install
+npm i gulp-cg-toolkit
+````
+
 ```` js
+// gulpfile.js
 const gulp = require('gulp')
 const toolkit = require('gulp-cg-toolkit')
 toolkit.extendTasks({ /* Config Extend */ })
@@ -19,27 +23,31 @@ toolkit.extendTasks(gulp, { /* Task Overrides */ })
 
 From version >2, a major feature is presented. You have to put a new folder `sites` in root directory and setup a folder per project.
 
-````script
-./
-  /sites
-    /mysite
-      /src
-        /dist
-        /README.md
-        /website.config.json
-  /package.json
+```` text
+|--sites
+|   |--mysite
+|   |   |--dist
+|   |   `--src
+|   |   |   |--data
+|   |   |   |--pages
+|   |   |   |--partials
+|   |   |   |--scss
+|   |   |   `--static
+|   |   |--README.md
+|   |   `--website.config.json
+`--package.json
 ````
 
 The `website.config.json` file is not required. It extends the default own.
 
-````json
+````js
 // Example website.config.json
 {
     "languages": ["en"], // optional. array of all languages. the first is default
     "dirs": {
         "dist": "./dist", //default-value
         "src": "./src", //default-value
-        "scss": "./scss", //default-value
+        "scss": "./src/scss", //default-value
         "statics": [{ // example of simple static folder - glob is used
             "destination": "./test/dist",
             "files": [
@@ -62,6 +70,10 @@ The `website.config.json` file is not required. It extends the default own.
 ## Parameters
 
 `--project`: Build project. E.g. `gulp build --project mySite`
+
+## Credits
+
+File stracture and some tasks are inspired or copied from [gulp-wp-toolkit](https://github.com/craigsimps/gulp-wp-toolkit)
 
 ## License
 
