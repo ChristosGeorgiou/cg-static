@@ -11,19 +11,13 @@ function copy (srcDir, dstDir) {
     var stat = fs.statSync(src)
     if (stat && stat.isDirectory()) {
       try {
-        console.log('creating dir: ' + dst)
         fs.mkdirSync(dst)
-      } catch (e) {
-        console.log('directory already exists: ' + dst)
-      }
+      } catch (e) {}
       results = results.concat(copy(src, dst))
     } else {
       try {
-        console.log('copying file: ' + dst)
         fs.writeFileSync(dst, fs.readFileSync(src))
-      } catch (e) {
-        console.log('could\'t copy file: ' + dst)
-      }
+      } catch (e) {}
       results.push(src)
     }
   })
