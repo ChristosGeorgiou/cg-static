@@ -12,8 +12,8 @@ module.exports = (function () {
       src: './src',
       scss: './src/scss',
       statics: [{
-        files: './src/static',
-        destination: './dist'
+        files: './src/static/',
+        destination: './dist/'
       }]
     },
     handlebars: {

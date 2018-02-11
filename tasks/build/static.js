@@ -28,6 +28,10 @@ module.exports = function () {
     return
   }
 
+  if (!fs.existsSync(config.dirs.dist)) {
+    fs.mkdirSync(config.dirs.dist)
+  }
+
   let len = config.dirs.statics.length
 
   for (let i = 0; i < len; i++) {
