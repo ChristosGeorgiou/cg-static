@@ -5,6 +5,9 @@ const path = require('path')
 
 module.exports = function () {
   gulp.watch([path.join(config.dirs.scss, '**/*.scss')], ['build:scss'])
+  gulp.watch(config.dirs.statics.map((static) => {
+    return path.join(static.files, '**/*')
+  }), ['build:static'])
   gulp.watch([
     path.join(config.dirs.src, 'data/**/*.json'),
     path.join(config.dirs.src, '**/*.hbs')
