@@ -12,7 +12,7 @@ module.exports = (function () {
       src: './src',
       scss: './src/scss',
       statics: [{
-        files: './src/static/',
+        source: './src/static/',
         destination: './dist/'
       }]
     },
@@ -40,12 +40,10 @@ module.exports = (function () {
 
   if (config.dirs.statics.length) {
     config.dirs.statics.forEach(element => {
-      element.files = path.join(config.dirs.root, element.files)
+      element.source = path.join(config.dirs.root, element.source)
       element.destination = path.join(config.dirs.root, element.destination)
     })
   }
-
-  console.log('CONFIG', config)
 
   return config
 })()
