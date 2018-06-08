@@ -12,7 +12,7 @@ module.exports = (function () {
       src: './src',
       scss: './src/scss',
       statics: [{
-        source: './src/static/',
+        source: './src/static/**/*',
         destination: './dist/'
       }]
     },
