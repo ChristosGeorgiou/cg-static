@@ -1,20 +1,19 @@
 const gulp = require('gulp')
-const config = require('../config')
+const config = require('../utils/config.service').config
 const bs = require('browser-sync').get('SIM')
 const path = require('path')
 
-module.exports = function () {
-  gulp.watch([path.join(config.dirs.scss, '**/*.scss')], ['build:scss'])
-  gulp.watch(config.dirs.statics.map((file) => {
+module.exports = () => {
+  gulp.watch([
+    path.join(config.scss, '**/*.scss')
+  ], ['build:scss'])
+  gulp.watch(config.files.map((file) => {
     return file.source
-  }), ['build:static'])
+  }), ['build:files'])
   gulp.watch([
-    path.join(config.dirs.src, 'data/**/*.json'),
-    path.join(config.dirs.src, '**/*.hbs')
-  ], ['build:hbs'])
-  gulp.watch([
-    path.join(config.dirs.scss, '**/*.scss'),
-    path.join(config.dirs.src, 'data/**/*.json'),
-    path.join(config.dirs.src, '**/*.hbs')
-  ]).on('change', bs.reload)
+    path.join(config.data, '**/*.json'),
+    path.join(config.pages, '**/*.hbs'),
+    path.join(config.helpers, '**/*.js'),
+    path.join(config.partials, '**/*.hbs')
+  ], ['build:hbs']).on('change', bs.reload)
 }

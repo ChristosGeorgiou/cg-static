@@ -1,3 +1,8 @@
 {
-    "test": "test"
+  "test": "test",
+  "num": 4,
+  "testJson": {
+    "aString": "lorem",
+    "anArray": [1, 2, 3]
+  }
 }

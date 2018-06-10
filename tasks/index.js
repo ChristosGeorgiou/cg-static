@@ -2,12 +2,13 @@ module.exports = {
 
   'browser-sync': [require('./browser-sync')],
   'clean': [require('./clean')],
+  'clear': [require('./clean')],
 
-  'build:hbs': [require('./build/hbs')],
-  'build:scss': [require('./build/scss')],
-  'build:static': [require('./build/static')],
+  'build:pages': [require('./build/hbs')],
+  'build:styles': [require('./build/scss')],
+  'build:files': [require('./build/files')],
   'build': [
-    ['build:hbs', 'build:scss', 'build:static']
+    ['build:pages', 'build:styles', 'build:files']
   ],
 
   'watch': [require('./watch')],

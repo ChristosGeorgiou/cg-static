@@ -1,10 +1,10 @@
 const gulp = require('gulp')
-const config = require('../config')
+const config = require('../utils/config.service').config
 const clean = require('gulp-clean')
 
-module.exports = function () {
+module.exports = () => {
   return gulp
-    .src(config.dirs.dist, {
+    .src(config.dist, {
       read: false
     })
     .pipe(clean())

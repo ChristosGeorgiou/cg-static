@@ -1,0 +1,13 @@
+{
+  "languages": ["en"],
+  "dist": "./dist",
+  "data": "./src/data",
+  "pages": "./src/pages",
+  "partials": "./src/partials",
+  "helpers": "./src/helpers",
+  "scss": "./src/scss",
+  "files": [{
+    "source": "./src/static/**/*",
+    "destination": "./dist/"
+  }]
+}

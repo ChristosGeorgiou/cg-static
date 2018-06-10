@@ -1,3 +1,8 @@
 {{>_header}}
+{{_name}}
+{{_version}}
 {{_base.test}}
+{{#eq _base.num 4}}see{{/eq}}
+{{#eq _base.num 5}}not see{{/eq}}
+{{#json _base.testJson}}{{/json}}
 {{>_footer}}
