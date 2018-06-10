@@ -1,9 +1,8 @@
 # Gulp Toolkit v3
 
-A collection of gulp-tasks for static website build automation.
+A collection of gulp tasks for generate static sites.
 
-
-**Multi project support feature is dropped at v3**
+Multi project support feature **is dropped at v3**
 
 ## Usage
 
