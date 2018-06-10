@@ -12,7 +12,6 @@ module.exports = (gulp, config) => {
   hbService.setup()
   extendTasks(gulp, tasks)
   return {
-    bs: bs,
-    extendTasks: extendTasks
+    bs: bs
   }
 }

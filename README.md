@@ -1,10 +1,11 @@
-# Gulp Toolkit
+# Gulp Toolkit v3
 
 A collection of gulp-tasks for static website build automation.
 
-## Usage
 
-Install
+**Multi project support feature is dropped at v3**
+
+## Usage
 
 ```` bash
 # install
@@ -12,64 +13,47 @@ npm i gulp-cg-toolkit
 ````
 
 ```` js
-// gulpfile.js
+// simplest gulpfile.js
 const gulp = require('gulp')
-const toolkit = require('gulp-cg-toolkit')
-toolkit.extendTasks({ /* Config Extend */ })
-toolkit.extendTasks(gulp, { /* Task Overrides */ })
+require('gulp-cg-toolkit')(gulp)
+
+// gulpfile.js with custom config
+const gulp = require('gulp')
+const pkg = require('./package.json')
+require('gulp-cg-toolkit')(gulp, {
+  name: pkg.name,
+  version: pkg.version,
+  pages: "./src/my-pages",
+  partials: "./src/may-partials",
+})
 ````
 
-## Multi Project Support
+## Default Configuration
 
-From version >2, a major feature is presented. You have to put a new folder `sites` in root directory and setup a folder per project.
-
-```` text
-|--sites
-|   |--mysite
-|   |   |--dist
-|   |   `--src
-|   |   |   |--data
-|   |   |   |--pages
-|   |   |   |--partials
-|   |   |   |--scss
-|   |   |   `--static
-|   |   |--README.md
-|   |   `--website.config.json
-`--package.json
-````
-
-The `website.config.json` file is not required. It extends the default own.
-
-````js
-// Example website.config.json
+````json
 {
-    "languages": ["en"], // optional. array of all languages. the first is default
-    "dirs": {
-        "dist": "./dist", //default-value
-        "src": "./src", //default-value
-        "scss": "./src/scss", //default-value
-        "statics": [{ // example of simple static folder - glob is used
-            "destination": "./test/dist",
-            "files": [
-                "./test/src/static/**/*.*"
-            ],
-        }]
-    }
+  "languages": ["en"],
+  "dist": "./dist",
+  "data": "./src/data",
+  "pages": "./src/pages",
+  "partials": "./src/partials",
+  "helpers": "./src/helpers",
+  "scss": "./src/scss",
+  "files": [{
+    "source": "./src/static/**/*",
+    "destination": "./dist/"
+  }]
 }
 ````
 
 ## Functions
 
 - `gulp serve` serve using browser-sync
-- `gulp clean` clean dist folder - all file will be deleted
+- `gulp clean` clean dist folder, all files will be deleted
 - `gulp build` run handlebars scss and static
-  - `gulp build:hbs` build handlebars templates
-  - `gulp build:scss` build sass files
-  - `gulp build:static` copy all contents of the static folder in dist root
-
-## Parameters
-
-`--project`: Build project. E.g. `gulp build --project mySite`
+  - `gulp build:pages` build handlebars templates
+  - `gulp build:styles` build sass files
+  - `gulp build:files` copy all contents of the files folder in dist root
 
 ## Credits
 
