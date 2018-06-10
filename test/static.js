@@ -1,7 +1,7 @@
 var mocha = require('mocha')
+var assert = require('assert')
 var describe = mocha.describe
 var it = mocha.it
-var assert = require('assert')
 
 describe('Array', function () {
   describe('#indexOf()', function () {

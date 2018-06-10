@@ -34,6 +34,7 @@
     "gulp-util": "3.0.8",
     "handlebars-helpers": "^0.10.0",
     "handlebars-layouts": "^3.1.4",
+    "lazypipe": "^1.0.1",
     "mocha": "^5.2.0"
   },
   "standard": {
