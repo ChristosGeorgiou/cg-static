@@ -15,5 +15,5 @@ module.exports = () => {
     path.join(config.pages, '**/*.hbs'),
     path.join(config.helpers, '**/*.js'),
     path.join(config.partials, '**/*.hbs')
-  ], ['build:hbs']).on('change', bs.reload)
+  ], ['build:pages']).on('change', bs.reload)
 }
