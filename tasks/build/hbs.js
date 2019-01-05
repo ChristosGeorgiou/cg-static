@@ -1,5 +1,4 @@
 const gulp = require('gulp')
-const bs = require('browser-sync').get('SIM')
 const fs = require('fs')
 const data = require('gulp-data')
 const path = require('path')
@@ -64,8 +63,7 @@ function loadDataFile (filename, lang) {
 module.exports = (cb) => {
   config.languages.reduce(function (chain, lang) {
     return chain.then(buildPages.bind(null, lang, lang))
-  }, buildPages(config.languages[0], 'default')).then(function () {
-    bs.reload()
+  }, buildPages(config.languages[0], 'default')).then(() => {
     cb()
   })
 }

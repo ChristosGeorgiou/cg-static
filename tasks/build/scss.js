@@ -1,13 +1,14 @@
 const gulp = require('gulp')
 const config = require('../../utils/config.service').config
-const bs = require('browser-sync').get('SIM')
+const browserSync = require('browser-sync')
 const minify = require('gulp-clean-css')
 const path = require('path')
 const rename = require('gulp-rename')
 const sass = require('gulp-sass')
 
 module.exports = () => {
-  return gulp
+  const bs = browserSync.get('SIM')
+  gulp
     .src(path.join(config.scss, '**/*.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(path.join(config.dist, 'css')))

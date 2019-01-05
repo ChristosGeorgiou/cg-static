@@ -1,8 +1,12 @@
 {{>_header}}
-{{_name}}
-{{_version}}
-{{_base.test}}
+<h1>{{_name}}</h1>
+<ul>
+    <li>{{_version}}</li>
+    <li>{{_base.test}}</li>
+</ul>
 {{#eq _base.num 4}}see{{/eq}}
 {{#eq _base.num 5}}not see{{/eq}}
+<pre>
 {{#json _base.testJson}}{{/json}}
+</pre>
 {{>_footer}}
