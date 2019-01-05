@@ -6,7 +6,7 @@ const path = require('path')
 const rename = require('gulp-rename')
 const sass = require('gulp-sass')
 
-module.exports = () => {
+module.exports = (cb) => {
   const bs = browserSync.get('SIM')
   gulp
     .src(path.join(config.scss, '**/*.scss'))
@@ -18,4 +18,6 @@ module.exports = () => {
     }))
     .pipe(gulp.dest(path.join(config.dist, 'css')))
     .pipe(bs.stream())
+
+  cb()
 }
