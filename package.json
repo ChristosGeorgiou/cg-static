@@ -1,6 +1,6 @@
 {
   "name": "gulp-cg-toolkit",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A collection of gulp tasks to automate build of static sites",
   "main": "index.js",
   "author": {
