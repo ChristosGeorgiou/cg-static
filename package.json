@@ -35,7 +35,7 @@
     "handlebars-helpers": "^0.10.0",
     "handlebars-layouts": "^3.1.4",
     "lazypipe": "^1.0.2",
-    "mocha": "^5.2.0"
+    "mocha": "^6.1.4"
   },
   "standard": {
     "workingDirectories": [
