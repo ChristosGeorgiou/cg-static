@@ -7,6 +7,9 @@
   "helpers": "./src/helpers",
   "scss": "./src/scss",
   "files": [{
+    "source": "./static/**/*",
+    "destination": "./dist/"
+  },{
     "source": "./src/static/**/*",
     "destination": "./dist/"
   }]

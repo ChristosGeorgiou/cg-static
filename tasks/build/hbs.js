@@ -9,7 +9,7 @@ const rename = require('gulp-rename')
 const config = require('../../utils/config.service').config
 const hbService = require('../../utils/handlebars.service')
 
-function buildPages (lang, dest) {
+function buildPages(lang, dest) {
   return new Promise(function (resolve, reject) {
     let _base = loadDataFile('_base', lang)
     gulp.src([path.join(config.pages, '**/*.hbs')])
@@ -26,11 +26,11 @@ function buildPages (lang, dest) {
         _version: config.version || '???no-version???',
         _base: _base
       }, {
-        batch: config.partials
-      }).on('error', (err) => {
-        gutil.log(err)
-        reject(err)
-      }))
+          batch: config.partials
+        }).on('error', (err) => {
+          gutil.log(err)
+          reject(err)
+        }))
       .pipe(rename({
         extname: '.html'
       }))
@@ -41,23 +41,24 @@ function buildPages (lang, dest) {
   })
 }
 
-function loadDataFile (filename, lang) {
-  let fileBase = path.join(config.data, `${filename}.json`)
-  if (!fs.existsSync(fileBase)) return {}
-  let fileBaseDataRaw = fs.readFileSync(fileBase)
-  let fileBaseData = JSON.parse(fileBaseDataRaw, {
-    encoding: 'UTF-8'
-  })
-
-  let fileLang = path.join(config.data, `${filename}.${lang}.json`)
-  if (lang && fs.existsSync(fileLang)) {
-    let fileLangDataRaw = fs.readFileSync(fileLang)
-    let fileLangData = JSON.parse(fileLangDataRaw, {
+function getData(p, file) {
+  let f = path.join(p, `${file}.json`)
+  let d = {}
+  if (fs.existsSync(f)) {
+    d = JSON.parse(fs.readFileSync(f), {
       encoding: 'UTF-8'
     })
-    fileBaseData = extend(true, fileBaseData, fileLangData)
   }
-  return fileBaseData
+  return d
+}
+
+function loadDataFile(filename, lang) {
+  let dataBase = getData(config.data, `${filename}`)
+  let dataBaseLang = getData(config.data, `${filename}.${lang}`)
+  let dataPage = getData(config.pages, `${filename}`)
+  let dataPageLang = getData(config.pages, `${filename}.${lang}`)
+
+  return extend(true, dataBase, dataPage, dataBaseLang, dataPageLang)
 }
 
 module.exports = (cb) => {
